@@ -10,13 +10,15 @@ describe('Acesso ao sistema de teste', () => {
   it('Preencher o formulário de login', () => {
     cy.once('uncaught:exception', () => false);
     cy.get('#username').type('03117956093');
+    cy.wait(1000);
     cy.get('#mat-input-1').type('Teste@123');
+    cy.wait(10000);
     cy.get(`[type="submit"]`).eq(0).click();
     cy.wait(3000);
     cy.get(`[placeholder="O que você precisa hoje?"]`).eq(0).type('Aspirina')
     cy.get(`[aria-label="pesquisar produto"]`).eq(0).click();
     cy.wait(3000);
-    cy.get(`[src="https://cdn1.staticpanvel.com.br/cdn_service/svg/tags/checkout_bf.svg"]`).eq(0).click();
+    cy.get(`[src="https://cdn1.staticpanvel.com.br/cdn_service/svg/tags/add-cart-new.svg"]`).eq(0).click();
     cy.wait(1000);
     cy.get('.button-add-cart').eq(0).click();
     cy.wait(1000);
